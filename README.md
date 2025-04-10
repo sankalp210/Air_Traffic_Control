@@ -1,55 +1,56 @@
 # ✈️ Air Traffic Control System
 
-A real-time air traffic management system developed using C programming and Linked List data structures. The system ensures efficient flight operations, dynamic scheduling, and data integrity through robust design and architecture.
+A real-time command-line Air Traffic Management system developed in C. It simulates an air traffic controller's dashboard with efficient flight scheduling, cancellation, and real-time updates using ETA buckets and linked lists.
 
-## 📌 Project Goals
+---
 
-- Develop a real-time flight tracking and scheduling system.
-- Implement an efficient and responsive system using core data structures.
-- Provide reliable and scalable operations using persistent file storage.
+## 🧠 Project Goals
 
-## 🛠️ Tech Stack & Tools
+- Simulate a basic real-time **Air Traffic Control** dashboard.
+- Efficiently **manage, insert, cancel**, and **view flight plans** based on Estimated Time of Arrival (ETA).
+- Rearrange and visualize flights in **hour-based ETA buckets**.
+- Practice hands-on **data structure and file handling** concepts in C.
 
-- **Language:** C
-- **Data Structures:** Linked List
-- **Persistence:** File-based storage
-- **Algorithmic Techniques:** ETA-based scheduling, CRUD operations
-
-## 🚀 Features
-
-- 🛫 **Real-Time Scheduling:**  
-  Implements a dynamic flight scheduling system based on ETA using bucket-based organization.
-
-- 📋 **Flight Management:**  
-  Allows addition, deletion, and update of flight operations using CRUD functionalities.
-
-- 💾 **Persistent Storage:**  
-  Flight data is stored in files, ensuring durability across sessions.
-
-- 🧑‍✈️ **Responsive Interface:**  
-  Provides a simple command-line interface for controlling and monitoring flights.
-
-- 🛡️ **Data Integrity:**  
-  Implements error-handling and validation mechanisms to ensure correctness of operations.
+---
 
 ## ⚙️ How It Works
 
-1. Each flight is represented using a node in a linked list.
-2. Flights are inserted into buckets based on ETA for optimized scheduling.
-3. User can perform operations like:
-   - Add new flight
-   - Delete existing flight
-   - View all flights
-   - Schedule flights based on ETA
-4. All changes are saved to a file and loaded on startup.
+- **Linked Lists** are used to represent dynamic flight entries.
+- **24 ETA Buckets** are created (one for each hour of the day).
+- Flight plans are loaded from `input.txt` and placed in the relevant ETA bucket.
+- Each bucket contains a **sorted list of flights** based on departure time.
+- Users can:
+  - Add or cancel flights
+  - View status by Flight ID
+  - Print all flights
+  - Rearrange dashboard based on current time
+- All interactions are through a command-line menu.
 
-## 📂 File Structure
+---
+
+## ✨ Key Features
+
+- 🛬 **ETA-based Bucketing System:**  
+  Flights are sorted into buckets based on their ETA (hour intervals).
+
+- 🧾 **File-based Bulk Input:**  
+  Load flight data from `input.txt`, supporting up to 200 entries.
+
+- 🧮 **Sorted Insertion by Departure Time:**  
+  Inside each bucket, flights are sorted for efficient access.
+
+- 🗑️ **Flight Cancellation:**  
+  Remove a flight by ID with clean memory management.
+
+- 🔄 **Live Reorganization:**  
+  Rearranges buckets dynamically based on current time to display upcoming flights.
+
+---
+
+## 🧩 Code Structure
 
 ```bash
-.
-├── main.c              # Main driver code
-├── flights.c           # Flight operations (CRUD)
-├── schedule.c          # Scheduling logic
-├── storage.c           # File persistence functions
-├── utils.c             # Utility and validation functions
-├── README.md           # You're here!
+air-traffic-control/
+├── main.c              # Entire program logic
+├── input.txt           # Input file with 200 flight entries
+├── README.md           # Project overview (you're here)
